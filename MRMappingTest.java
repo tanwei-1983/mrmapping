@@ -64,7 +64,7 @@ public class MRMappingTest {
 		Map<String, Object>map=new HashMap<>();
 		map.put("name", "myname");
 		List<Object>objList=new ArrayList<>();
-		String dynamicSql=MRMapping.getWhereStatement(map, objList);//dynamicSql= "where name=?", objList=list("myname") 
+		String dynamicSql=MRMapping.getWhereStatement(map, objList);//dynamicSql= " where name=?", objList=list("myname") 
 		List<Map<String, Object>> selList=db.selectS("select id, name from foo"+dynamicSql, objList);
 	}
 			
