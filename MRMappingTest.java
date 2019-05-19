@@ -62,10 +62,10 @@ public class MRMappingTest {
 	public static void dynamicSelectTest(){
 		MRMapping db = new MRMapping(false);
 		Map<String, Object>map=new HashMap<>();
-		map.put("foo", "string1");
+		map.put("name", "myname");
 		List<Object>objList=new ArrayList<>();
-		String dynamicSql=MRMapping.getWhereStatement(map, objList);
-		List<Map<String, Object>> selList=db.selectS(dynamicSql, objList);
+		String dynamicSql=MRMapping.getWhereStatement(map, objList);//dynamicSql= "where name=?", objList=list("myname") 
+		List<Map<String, Object>> selList=db.selectS("select id, name from foo"+dynamicSql, objList);
 	}
 			
 	public static void main(String[] args) {
